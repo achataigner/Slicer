@@ -26,6 +26,8 @@
 // SlicerApp includes
 #include "qSlicerAppMainWindow.h"
 
+# include "vtkSlicerVersionConfigure.h"
+
 namespace
 {
 

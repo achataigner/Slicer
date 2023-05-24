@@ -45,6 +45,8 @@
 # include "qSlicerScriptedLoadableModuleFactory.h"
 #endif
 
+#include "vtkSlicerVersionConfigure.h"
+
 #include <vtkSystemInformation.h>
 
 // CTK includes
