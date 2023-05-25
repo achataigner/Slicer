@@ -110,6 +110,7 @@
 
 // Logic includes
 #include <vtkSlicerApplicationLogic.h>
+#include <vtkSlicerVersionConfigure.h>
 #include <vtkSystemInformation.h>
 
 // MRML includes

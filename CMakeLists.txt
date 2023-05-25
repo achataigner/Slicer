@@ -19,6 +19,8 @@ if(NOT CMAKE_CXX_STANDARD MATCHES "^(17|20)$")
   message(FATAL_ERROR "CMAKE_CXX_STANDARD must be set to 17 or 20")
 endif()
 
+set(CMAKE_LINK_DEPENDS_NO_SHARED ON)
+
 #-----------------------------------------------------------------------------
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake" ${CMAKE_MODULE_PATH})
 set(SUPERBUILD_TOPLEVEL_PROJECT Slicer)
