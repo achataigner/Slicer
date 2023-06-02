@@ -14,8 +14,12 @@
 #define __vtkSlicerVersionConfigure_h
 
 /// \file vtkSlicerVersionConfigure.h
+/// This header provides version helpers to complete vtkSlicerVersionConfigureMinimal.h.
+/// This header file is regenerated each time the current git commit is changed.
+/// So this header should be included very carefully to keep a fast incremental build.
+/// Try to include vtkSlicerVersionConfigureMinimal.h before including this header.
 
-#include "vtkSlicerVersionConfigureInternal.h"
+#include "vtkSlicerVersionConfigureMinimal.h"
 
 /// \def Slicer_RELEASE_TYPE
 /// \brief Type of Slicer release: `Experimental`, `Nightly` or `Stable`.
