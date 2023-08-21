@@ -154,3 +154,8 @@ configure_file(
   ${Slicer_SOURCE_DIR}/CMake/vtkSlicerVersionConfigure.h.in
   ${Slicer_BINARY_DIR}/vtkSlicerVersionConfigure.h
   )
+
+  configure_file(
+  ${Slicer_SOURCE_DIR}/CMake/slicerVersionConfigure.json.in
+  ${Slicer_BINARY_DIR}/slicerVersionConfigure.json
+  )
