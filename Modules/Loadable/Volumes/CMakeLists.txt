@@ -73,6 +73,7 @@ slicerMacroBuildLoadableModule(
   TARGET_LIBRARIES ${MODULE_TARGET_LIBRARIES}
   RESOURCES ${MODULE_RESOURCES}
   WITH_GENERIC_TESTS
+  USE_PRECOMPILED_HEADERS
   )
 
 #-----------------------------------------------------------------------------

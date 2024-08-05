@@ -31,6 +31,7 @@ SlicerMacroBuildModuleLogic(
   INCLUDE_DIRECTORIES ${${KIT}_INCLUDE_DIRECTORIES}
   SRCS ${${KIT}_SRCS}
   TARGET_LIBRARIES ${${KIT}_TARGET_LIBRARIES}
+  USE_PRECOMPILED_HEADERS
   )
 
 #-----------------------------------------------------------------------------

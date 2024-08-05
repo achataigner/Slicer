@@ -26,6 +26,7 @@ macro(SlicerMacroBuildModuleLogic)
   set(options
     DISABLE_WRAP_PYTHON
     NO_INSTALL
+    USE_PRECOMPILED_HEADERS
     )
   set(oneValueArgs
     NAME
@@ -106,6 +107,12 @@ macro(SlicerMacroBuildModuleLogic)
     )
 
   set_property(GLOBAL APPEND PROPERTY SLICER_MODULE_LOGIC_TARGETS ${MODULELOGIC_NAME})
+
+  if (MODULELOGIC_USE_PRECOMPILED_HEADERS)
+    target_precompile_headers(${MODULELOGIC_NAME} REUSE_FROM vtkSlicerPrecompileVtkHeadersModuleLogic)
+    add_compile_definitions(vtkSlicerPrecompileVtkHeadersModuleLogic_EXPORTS)
+    #target_precompile_headers(${MODULELOGIC_NAME} REUSE_FROM vtkSlicerPrecompileItkHeadersModuleLogic)
+  endif()
 
   #-----------------------------------------------------------------------------
   # Update Slicer_ModuleLogic_INCLUDE_DIRS

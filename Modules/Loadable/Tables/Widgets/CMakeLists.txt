@@ -40,6 +40,7 @@ SlicerMacroBuildModuleWidgets(
   TARGET_LIBRARIES ${${KIT}_TARGET_LIBRARIES}
   RESOURCES ${${KIT}_RESOURCES}
   WRAP_PYTHONQT
+  USE_PRECOMPILED_HEADERS
   )
 
 #-----------------------------------------------------------------------------

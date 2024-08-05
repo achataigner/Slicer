@@ -23,6 +23,7 @@ macro(slicerMacroBuildLoadableModule)
     NO_INSTALL
     NO_TITLE
     WITH_GENERIC_TESTS
+    USE_PRECOMPILED_HEADERS
     )
   set(oneValueArgs
     NAME
@@ -227,6 +228,14 @@ macro(slicerMacroBuildLoadableModule)
   endif()
 
   set_property(GLOBAL APPEND PROPERTY SLICER_MODULE_TARGETS ${lib_name})
+
+  # Do not work because cc1plus: warning: /mnt/disk/dev/build-slicer-release/Slicer-build/Modules/Loadable/PrecompileQtHeaders/CMakeFiles/qSlicerPrecompileQtHeadersModule.dir/cmake_pch.hxx.gch: not used because `MODULE_TITLE' defined as ` "Volumes"' not ` "PrecompileQtHeaders"' [-Winvalid-pch]
+  # if (LOADABLEMODULE_USE_PRECOMPILED_HEADERS)
+  #   target_precompile_headers(${lib_name} REUSE_FROM qSlicerPrecompileVtkHeadersModule)
+  #   add_compile_definitions(qSlicerPrecompileVtkHeadersModule_EXPORTS)
+  #   target_precompile_headers(${lib_name} REUSE_FROM qSlicerPrecompileQtHeadersModule)
+  #   add_compile_definitions(qSlicerPrecompileQtHeadersModule_EXPORTS)
+  # endif()
 
   # --------------------------------------------------------------------------
   # Install library

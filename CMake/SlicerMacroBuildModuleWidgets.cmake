@@ -26,6 +26,7 @@ macro(SlicerMacroBuildModuleWidgets)
   set(options
     WRAP_PYTHONQT
     NO_INSTALL
+    USE_PRECOMPILED_HEADERS
     )
   set(oneValueArgs
     NAME
@@ -119,6 +120,11 @@ macro(SlicerMacroBuildModuleWidgets)
     )
 
   set_property(GLOBAL APPEND PROPERTY SLICER_MODULE_WIDGET_TARGETS ${MODULEWIDGETS_NAME})
+
+  if (MODULEWIDGETS_USE_PRECOMPILED_HEADERS)
+    target_precompile_headers(${MODULEWIDGETS_NAME} REUSE_FROM qSlicerPrecompileQtHeadersModuleWidgets)
+    add_compile_definitions(qSlicerPrecompileQtHeadersModuleWidgets_EXPORTS)
+  endif()
 
   #-----------------------------------------------------------------------------
   # Update Slicer_ModuleWidgets_INCLUDE_DIRS

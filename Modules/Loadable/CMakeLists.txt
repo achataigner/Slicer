@@ -7,6 +7,9 @@ include(${Slicer_CMAKE_DIR}/SlicerMacroBuildLoadableModule.cmake)
 # when configuring module A).
 
 set(qtmodules
+  PrecompileQtHeaders
+  # PrecompileItkHeaders
+  PrecompileVtkHeaders
   Cameras
   Units
   Terminologies
