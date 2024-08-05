@@ -26,6 +26,7 @@ macro(SlicerMacroBuildModuleQtLibrary)
   set(options
     WRAP_PYTHONQT
     NO_INSTALL
+    USE_PRECOMPILED_HEADERS
     )
   set(oneValueArgs
     NAME
@@ -176,6 +177,11 @@ macro(SlicerMacroBuildModuleQtLibrary)
     ${MODULEQTLIBRARY_TARGET_LIBRARIES}
     )
 
+  if (USE_PRECOMPILED_HEADERS)
+    target_precompile_headers(${lib_name} REUSE_FROM PrecompileQtCoreHeaders)
+    target_precompile_headers(${lib_name} REUSE_FROM PrecompileQtWidgetsHeaders)
+  endif()
+
   # Apply user-defined properties to the library target.
   if(Slicer_LIBRARY_PROPERTIES)
     set_target_properties(${lib_name} PROPERTIES ${Slicer_LIBRARY_PROPERTIES})
@@ -238,6 +244,8 @@ macro(SlicerMacroBuildModuleQtLibrary)
       INSTALL_LIB_DIR ${Slicer_INSTALL_QTLOADABLEMODULES_LIB_DIR}
       ${MODULEQTLIBRARY_NO_INSTALL_OPTION}
       )
+    target_precompile_headers(${lib_name}PythonQt REUSE_FROM PrecompileQtWidgetsHeaders)
+    target_precompile_headers(${lib_name}PythonQt REUSE_FROM PrecompileQtCoreHeaders)
     if(NOT "${MODULEQTLIBRARY_FOLDER}" STREQUAL "")
       set_target_properties(${lib_name}PythonQt PROPERTIES FOLDER ${MODULEQTLIBRARY_FOLDER})
     endif()

@@ -23,6 +23,7 @@ macro(slicerMacroBuildLoadableModule)
     NO_INSTALL
     NO_TITLE
     WITH_GENERIC_TESTS
+    USE_PRECOMPILED_HEADERS
     )
   set(oneValueArgs
     NAME
@@ -212,6 +213,11 @@ macro(slicerMacroBuildLoadableModule)
     PUBLIC
       ${Slicer_GUI_LIBRARY}
     )
+
+  if (USE_PRECOMPILED_HEADERS)
+    target_precompile_headers(${lib_name} REUSE_FROM PrecompileQtCoreHeaders)
+    target_precompile_headers(${lib_name} REUSE_FROM PrecompileQtWidgetsHeaders)
+  endif()
 
   # Apply user-defined properties to the library target.
   if(Slicer_LIBRARY_PROPERTIES)
