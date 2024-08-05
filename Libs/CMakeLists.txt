@@ -12,6 +12,11 @@ set(GENERATECLP_USE_MD5 ON)
 set(dirs )
 
 list(APPEND dirs
+  PrecompileQtCoreHeaders
+  PrecompileQtWidgetsHeaders
+  )
+
+list(APPEND dirs
   ITKFactoryRegistration
   )
 set(SlicerExecutionModel_EXTRA_EXECUTABLE_TARGET_LIBRARIES

@@ -206,6 +206,9 @@ macro(SlicerMacroBuildBaseQtLibrary)
     )
   set_target_properties(${lib_name} PROPERTIES LABELS ${lib_name})
 
+  target_precompile_headers(${lib_name} REUSE_FROM PrecompileQtCoreHeaders)
+  target_precompile_headers(${lib_name} REUSE_FROM PrecompileQtWidgetsHeaders)
+
   # Apply user-defined properties to the library target.
   if(Slicer_LIBRARY_PROPERTIES)
     set_target_properties(${lib_name} PROPERTIES ${Slicer_LIBRARY_PROPERTIES})
