@@ -132,6 +132,10 @@ macro(SlicerMacroBuildModuleVTKLibrary)
     ${MODULEVTKLIBRARY_TARGET_LIBRARIES}
     )
 
+  # Do not work , gcc warning: not used because `_POSIX_C_SOURCE' is defined [-Winvalid-pch]
+  target_precompile_headers(${lib_name} REUSE_FROM PrecompileItkHeaders)
+  target_precompile_headers(${lib_name} REUSE_FROM PrecompileVtkHeaders)
+
   # Apply user-defined properties to the library target.
   if(Slicer_LIBRARY_PROPERTIES)
     set_target_properties(${lib_name} PROPERTIES ${Slicer_LIBRARY_PROPERTIES})

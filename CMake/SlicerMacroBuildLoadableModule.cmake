@@ -213,6 +213,11 @@ macro(slicerMacroBuildLoadableModule)
       ${Slicer_GUI_LIBRARY}
     )
 
+  target_precompile_headers(${lib_name} REUSE_FROM PrecompileQtCoreHeaders)
+  target_precompile_headers(${lib_name} REUSE_FROM PrecompileQtWidgetsHeaders)
+  target_precompile_headers(${lib_name} REUSE_FROM PrecompileItkHeaders)
+  target_precompile_headers(${lib_name} REUSE_FROM PrecompileVtkHeaders)
+
   # Apply user-defined properties to the library target.
   if(Slicer_LIBRARY_PROPERTIES)
     set_target_properties(${lib_name} PROPERTIES ${Slicer_LIBRARY_PROPERTIES})

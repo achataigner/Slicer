@@ -98,6 +98,9 @@ macro(SlicerMacroBuildModuleMRML)
       RELATIVE_PYTHON_DIR "."
       )
 
+    target_precompile_headers(${MODULEMRML_NAME}Python REUSE_FROM PrecompileItkHeaders)
+    target_precompile_headers(${MODULEMRML_NAME}Python REUSE_FROM PrecompileVtkHeaders)
+
     if(NOT "${MODULEMRML_FOLDER}" STREQUAL "")
       set_target_properties(${MODULEMRML_NAME}Python PROPERTIES FOLDER ${MODULEMRML_FOLDER})
       if(TARGET ${MODULEMRML_NAME}Hierarchy)

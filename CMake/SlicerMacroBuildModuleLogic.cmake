@@ -130,6 +130,9 @@ macro(SlicerMacroBuildModuleLogic)
       WRAPPED_TARGET_LIBRARIES ${Slicer_Wrapped_LIBRARIES}
       RELATIVE_PYTHON_DIR "."
       )
+    target_precompile_headers(${MODULELOGIC_NAME}Python REUSE_FROM PrecompileItkHeaders)
+    target_precompile_headers(${MODULELOGIC_NAME}Python REUSE_FROM PrecompileVtkHeaders)
+
 
     if(NOT "${MODULELOGIC_FOLDER}" STREQUAL "")
       set_target_properties(${MODULELOGIC_NAME}Python PROPERTIES FOLDER ${MODULELOGIC_FOLDER})
